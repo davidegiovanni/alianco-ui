@@ -1,0 +1,15 @@
+{
+  "auth": {
+    "logout": "Esci"
+  },
+  "create-realm": {
+    "overlay-message": "Ciao! Puoi creare una nuova organizzazione oppure attendere che qualcun altro ti aggiunga ad una già esistente :)",
+    "overlay-action": "Crea un'organizzazione",
+    "name-input-label": "Organizzazione",
+    "name-input-placeholder": "Nome",
+    "cancel-button": "Cancella",
+    "confirm-button": "Conferma"
+  },
+  "create": "Crea organizzazione",
+  "list": "I membri"
+}
