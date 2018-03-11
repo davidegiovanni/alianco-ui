@@ -6,13 +6,15 @@
         </div>
       </div>
     </section>
-    <section style="transform: translateY(-50%)">
+    <section
+      class="section"
+      style="transform: translateY(-50%)">
       <div
         class="container is-flex"
         style="justify-content: flex-end;">
         <base-button
           class="button"
-          @click="showUserModal">
+          @click="isSelectingUser = true">
           Add citizen
         </base-button>
       </div>
@@ -29,18 +31,25 @@
         </div>
       </div>
     </section>
+    <user-autocomplete-modal
+      v-show="isSelectingUser"
+      @close="isSelectingUser = false"
+      @select="addCitizen"></user-autocomplete-modal>
   </div>
 </template>
 
 <script>
   import CitizenCard from '@/modules/realms/components/AppCitizenCard'
+  import UserAutocompleteModal from '@/components/UserAutocompleteModal.vue'
+
   export default {
     components: {
+      UserAutocompleteModal,
       CitizenCard
     },
     data () {
       return {
-        isActive: false
+        isSelectingUser: false
       }
     },
     computed: {
@@ -52,12 +61,14 @@
       }
     },
     methods: {
-      showUserModal: function () {
-        // this.$store.dispatch()
+      addCitizen (user) {
+        debugger
+        this.isSelectingUser = false
+        this.$store.dispatch('realms/addCitizen', user)
       }
     },
     watch: {
-      currentRealm: function (realm) {
+      currentRealm (realm) {
         this.$store.dispatch('realms/queryCitizens', realm)
       }
     }

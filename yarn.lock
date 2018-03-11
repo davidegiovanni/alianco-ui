@@ -54,9 +54,26 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
-"@revas/alianco-service@^0.0.1-alpha":
+"@fortawesome/fontawesome-common-types@^0.1.3":
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.1.3.tgz#8475e0f2d1ad1f858c4ec2e76ed9a2456a09ad83"
+
+"@fortawesome/fontawesome@^1.1.4":
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome/-/fontawesome-1.1.4.tgz#03065638046206c2226e103b550196934c75be9b"
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.1.3"
+
+"@revas/alianco-service@^0.0.2-alpha":
+  version "0.0.2-alpha"
+  resolved "https://registry.yarnpkg.com/@revas/alianco-service/-/alianco-service-0.0.2-alpha.tgz#55f8a66066632519493b5849c88ce575fa7b4abf"
+
+"@revas/animo-service@^0.0.1-alpha":
   version "0.0.1-alpha"
-  resolved "https://registry.yarnpkg.com/@revas/alianco-service/-/alianco-service-0.0.1-alpha.tgz#b78f08e7f4c594ec90567b6d64851ddbcd1eed89"
+  resolved "https://registry.yarnpkg.com/@revas/animo-service/-/animo-service-0.0.1-alpha.tgz#5d42b39ea4cee27e6abf9871598b5155cb96663f"
+  dependencies:
+    lodash "^4.17.5"
+    query-string "^5.1.0"
 
 "@revas/auth-core@^0.0.1-alpha":
   version "0.0.1-alpha"

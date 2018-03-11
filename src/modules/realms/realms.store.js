@@ -53,6 +53,16 @@ export default {
     },
     [types.REALMS_REMOVE_CITIZEN_FAILURE] (state) {
       state.isWaiting = false
+    },
+    [types.REALMS_ADD_CITIZEN_REQUEST] (state) {
+      state.isWaiting = true
+    },
+    [types.REALMS_ADD_CITIZEN_SUCCESS] (state, citizen) {
+      state.isWaiting = false
+      state.citizens.push(citizen)
+    },
+    [types.REALMS_ADD_CITIZEN_FAILURE] (state) {
+      state.isWaiting = false
     }
   },
   actions: {
@@ -85,18 +95,21 @@ export default {
       commit(types.REALMS_ADD_CITIZEN_REQUEST)
       try {
         const realm = rootGetters['app/currentRealm']
-        await service.removeCitizen(realm, user)
-        commit(types.REALMS_ADD_CITIZEN_SUCCESS, user)
+        const { data: { citizen } } = await service.addCitizen(realm, {
+          user_hid: user.user_hid,
+          role: 'member'
+        })
+        commit(types.REALMS_ADD_CITIZEN_SUCCESS, Object.assign({}, user, citizen))
       } catch (e) {
         commit(types.REALMS_ADD_CITIZEN_FAILURE)
       }
     },
-    async removeCitizen ({commit, rootGetters}, user) {
+    async removeCitizen ({commit, rootGetters}, citizen) {
       commit(types.REALMS_REMOVE_CITIZEN_REQUEST)
       try {
         const realm = rootGetters['app/currentRealm']
-        await service.removeCitizen(realm, user)
-        commit(types.REALMS_REMOVE_CITIZEN_SUCCESS, user)
+        await service.removeCitizen(realm, citizen)
+        commit(types.REALMS_REMOVE_CITIZEN_SUCCESS, citizen)
       } catch (e) {
         commit(types.REALMS_REMOVE_CITIZEN_FAILURE)
       }

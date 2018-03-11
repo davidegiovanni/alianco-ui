@@ -5,7 +5,7 @@
   "author": "Luisa <luisachen95@gmail.com>",
   "private": true,
   "scripts": {
-    "dev": "node build/dev-server.js",
+    "dev": "PORT=10000 node build/dev-server.js",
     "start": "node build/dev-server.js",
     "build": "node build/build.js",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
@@ -14,7 +14,9 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs --fix"
   },
   "dependencies": {
-    "@revas/alianco-service": "^0.0.1-alpha",
+    "@fortawesome/fontawesome": "^1.1.4",
+    "@revas/alianco-service": "^0.0.2-alpha",
+    "@revas/animo-service": "^0.0.1-alpha",
     "@revas/auth-core": "^0.0.1-alpha",
     "@revas/auth-vue": "^0.0.6-alpha",
     "@revas/design-components": "^0.0.1",
