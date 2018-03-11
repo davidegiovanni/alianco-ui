@@ -26,7 +26,9 @@
             :key="citizen.user_hid"
             v-for="citizen in citizens"
             class="column is-one-fifth">
-            <citizen-card :citizen="citizen"/>
+            <citizen-card
+              :citizen="citizen"
+              @remove="removeCitizen($event, citizen)"/>
           </div>
         </div>
       </div>
@@ -62,9 +64,12 @@
     },
     methods: {
       addCitizen (user) {
-        debugger
         this.isSelectingUser = false
         this.$store.dispatch('realms/addCitizen', user)
+      },
+      removeCitizen ($event, citizen) {
+        debugger
+        this.$store.dispatch('realms/removeCitizen', citizen)
       }
     },
     watch: {
