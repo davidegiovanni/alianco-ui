@@ -7,7 +7,7 @@
         <base-button @click="sidebar = true">
           <base-icon icon="globe" />
         </base-button>
-        <span>
+        <span class="is-uppercase">
           {{ currentRealm ? currentRealm.name : '' }} - {{ $t(routeName) }}
         </span>
       </template>
