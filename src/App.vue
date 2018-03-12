@@ -5,9 +5,7 @@
       <template
         slot="left">
         <base-button @click="sidebar = true">
-            <span class="icon is-large">
-              OS
-            </span>
+          <base-icon icon="globe" />
         </base-button>
         <span>
           {{ currentRealm ? currentRealm.name : '' }} - {{ $t(routeName) }}
