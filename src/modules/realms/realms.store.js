@@ -1,5 +1,5 @@
 import AliancoService from '@revas/alianco-service'
-import AnimoService from './animo.service'
+import AnimoService from '@revas/animo-service'
 import types from './realms.store.mutations'
 import Axios from 'axios'
 import _ from 'lodash'

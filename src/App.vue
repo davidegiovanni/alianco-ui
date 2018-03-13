@@ -32,7 +32,7 @@
       :options="{ closeLabel: 'chiudi' }"
       v-show="sidebar"
       @close="sidebar = false"
-      @select="select"
+      @select="changeRealm"
       :realms="realms"/>
     <transition name="fade">
       <router-view/>
@@ -77,12 +77,10 @@
     methods: {
       changeRealm (realm) {
         this.$store.dispatch('app/changeRealm', realm)
+        this.sidebar = false
       },
       gotoCreateRealm () {
         this.$router.push('create')
-      },
-      select () {
-        this.sidebar = false
       }
     }
   }

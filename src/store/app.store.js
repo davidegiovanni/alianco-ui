@@ -56,9 +56,11 @@ export default {
     async changeRealm ({commit}, realm) {
       commit(types.APP_CHANGE_REALM, realm)
     },
-    async updateRealms ({commit}, realm) {
+    async updateRealms ({commit, dispatch}, realm) {
       if (realm) {
         commit(types.APP_UPDATE_REALMS_ADD_REALM, realm)
+        await dispatch('changeRealm', realm)
+        await dispatch('realms/queryCitizens', realm, { root: true })
       } else {
         commit(types.APP_UPDATE_REALMS_QUERY_REALMS_REQUEST)
         try {

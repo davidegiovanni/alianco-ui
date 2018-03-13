@@ -68,7 +68,6 @@
         this.$store.dispatch('realms/addCitizen', user)
       },
       removeCitizen ($event, citizen) {
-        debugger
         this.$store.dispatch('realms/removeCitizen', citizen)
       }
     },
