@@ -3,27 +3,30 @@
     @close="close"
     @select="select"
     :items="realms"
+    id="realm_hid"
+    :selected="currentRealm"
     :options="options">
     <template
       slot="sidebar-item"
       slot-scope="item">
-      <article class="media">
-        <figure class="media-left">
-          <p class="image is-64x64">
-            <img :src="item.data.data.picture">
-          </p>
-        </figure>
-        <p>
-          <strong>{{item.data.data.name}}</strong>
-          <br>{{item.data.data.hid}}
-        </p>
-      </article>
+      <realms-sidebar-item :realm="item.data.data"/>
+    </template>
+    <template
+      slot="sidebar-footer">
+      <base-button>
+        aggungi org
+      </base-button>
     </template>
   </base-sidebar>
 </template>
 
 <script>
+  import RealmsSidebarItem from '@/components/RealmsSidebarItem'
+
   export default {
+    components: {
+      RealmsSidebarItem
+    },
     props: {
       options: {
         default () {
@@ -36,10 +39,17 @@
           return []
         },
         type: Array
+      },
+      currentRealm: {
+        default () {
+          return {}
+        },
+        type: Object
       }
     },
     methods: {
       select ($event) {
+        debugger
         this.$emit('select', $event)
       },
       close ($event) {

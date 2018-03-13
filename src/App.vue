@@ -33,7 +33,8 @@
       v-show="sidebar"
       @close="sidebar = false"
       @select="changeRealm"
-      :realms="realms"/>
+      :realms="realms"
+    :currentRealm="currentRealm"/>
     <transition name="fade">
       <router-view/>
     </transition>
