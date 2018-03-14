@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section class="hero is-primary is-medium">
+    <section class="hero is-primary is-bold is-medium">
       <div class="hero-body">
         <div class="container">
         </div>
@@ -13,9 +13,11 @@
         class="container is-flex"
         style="justify-content: flex-end;">
         <base-button
-          class="button"
-          @click="isSelectingUser = true">
-          Add citizen
+          class="is-circular"
+          @click="isSelectingUser = true"
+          style="box-shadow: 0 8px 19px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);">
+          <base-icon
+            icon="plus"/>
         </base-button>
       </div>
     </section>

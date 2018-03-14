@@ -2,20 +2,23 @@
   <base-modal
     class="is-active"
     @close="close">
-    <base-card>
-      <base-autocomplete
-        :server="true"
-        :options="users"
-        @input="updateUsers"
-        @select="selectUser">
-        <template
-          slot="item"
-          scope="user">
-          <user-autocomplete-item
-            :user="user" />
-        </template>
-      </base-autocomplete>
-    </base-card>
+    <div
+      style="height: 600px">
+      <base-card>
+        <base-autocomplete
+          :server="true"
+          :options="users"
+          @input="updateUsers"
+          @select="selectUser">
+          <template
+            slot="item"
+            scope="user">
+            <user-autocomplete-item
+              :user="user" />
+          </template>
+        </base-autocomplete>
+      </base-card>
+    </div>
   </base-modal>
 </template>
 

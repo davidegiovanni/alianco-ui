@@ -5,23 +5,17 @@
       <template
         slot="left">
         <base-button @click="sidebar = true">
-          <base-icon icon="globe" />
+          <base-icon icon="map-signs" />
         </base-button>
-        <span class="is-uppercase">
+        <span class="is-uppercase is-size-4"
+        style="font-weight:700;color:white;">
           {{ currentRealm ? currentRealm.name : '' }} - {{ $t(routeName) }}
         </span>
       </template>
       <template
         slot="right">
-        <base-button
-          @click="gotoCreateRealm"
-          style="padding: 10px">
-            <span class="icon is-large">
-              CO
-            </span>
-        </base-button>
         <figure
-          class="image is-64x64">
+          class="image is-96x96">
           <img
             :src="profile"
             style="border-radius:50%">
@@ -33,6 +27,7 @@
       v-show="sidebar"
       @close="sidebar = false"
       @select="changeRealm"
+      @create="gotoCreateRealm"
       :realms="realms"
     :currentRealm="currentRealm"/>
     <transition name="fade">
@@ -60,7 +55,12 @@
         return this.$store.getters['app/realms']
       },
       profile () {
-        return this.$store.getters['auth/profile'].picture
+        const profile = this.$store.getters['auth/profile']
+        if (profile && profile.picture) {
+          return profile.picture
+        } else {
+          return 'https://api.adorable.io/avatars/96/qweqw.png'
+        }
       },
       currentRealm () {
         return this.$store.getters['app/currentRealm']

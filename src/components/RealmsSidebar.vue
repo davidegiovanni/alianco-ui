@@ -4,8 +4,7 @@
     @select="select"
     :items="realms"
     id="realm_hid"
-    :selected="currentRealm"
-    :options="options">
+    :selected="currentRealm">
     <template
       slot="sidebar-item"
       slot-scope="item">
@@ -13,8 +12,8 @@
     </template>
     <template
       slot="sidebar-footer">
-      <base-button>
-        aggungi org
+      <base-button class="is-text">
+        crea organizzazione
       </base-button>
     </template>
   </base-sidebar>
@@ -28,12 +27,6 @@
       RealmsSidebarItem
     },
     props: {
-      options: {
-        default () {
-          return {}
-        },
-        type: Object
-      },
       realms: {
         default () {
           return []
@@ -49,11 +42,13 @@
     },
     methods: {
       select ($event) {
-        debugger
         this.$emit('select', $event)
       },
       close ($event) {
         this.$emit('close', $event)
+      },
+      create ($event) {
+        this.$emit('create', $event)
       }
     }
   }
