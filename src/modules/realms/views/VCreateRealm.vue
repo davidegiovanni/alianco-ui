@@ -16,7 +16,7 @@
       </div>
     </base-overlay>
     <section
-      class="hero is-fullheight is-primary is-bold">
+      class="hero is-fullheight is-primary">
       <div
         class="hero-body">
         <div
@@ -68,7 +68,11 @@
         })
       },
       cancel () {
-        this.$router.push('members')
+        if (this.hasRealms) {
+          this.$router.push('members')
+        } else {
+          this.isDisposed = false
+        }
       }
     }
   }

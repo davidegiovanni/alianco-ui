@@ -26,6 +26,9 @@ export default {
   mutations: {
     [types.APP_UPDATE_REALMS_ADD_REALM] (state, payload) {
       state.realms.push(payload)
+      if (!state.currentRealm) {
+        state.currentRealm = payload
+      }
     },
     [types.APP_UPDATE_REALMS_QUERY_REALMS_REQUEST] (state) {
       state.isWaiting = true

@@ -81,8 +81,15 @@
     },
     created: function () {
       this.$store.dispatch('auth/init').then(() => {
-        this.$store.dispatch('app/init')
-        this.$router.push('/list')
+        this.$store.dispatch('app/init').then(() => {
+          debugger
+          if (!this.currentRealm) {
+            this.$router.push('create')
+          } else {
+            this.$router.push('list')
+          }
+        })
+
         this.sidebarButton = true
       })
     },
