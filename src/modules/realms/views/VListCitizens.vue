@@ -23,7 +23,16 @@
     </section>
     <section class="section">
       <div class="container">
-        <div class="columns is-multiline">
+        <div class="columns is-multiline"
+             v-if="isCitizensLoading">
+          <div  class="column is-one-fifth">
+            <citizen-card
+              :loading="isCitizensLoading"
+            />
+          </div>
+        </div>
+        <div class="columns is-multiline"
+             v-else>
           <div
             :key="citizen.user_hid"
             v-for="citizen in citizens"
@@ -62,6 +71,10 @@
       },
       currentRealm () {
         return this.$store.getters['app/currentRealm']
+      },
+      isCitizensLoading () {
+        // return this.$store.getters['realms/isWaiting']
+        return this.$store.getters['realms/isWaiting']
       }
     },
     methods: {
