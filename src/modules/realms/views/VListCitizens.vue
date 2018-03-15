@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section class="hero is-primary is-bold is-medium">
+    <section class="hero action-bar is-primary">
       <div class="hero-body">
         <div class="container">
         </div>
@@ -15,7 +15,7 @@
         <base-button
           class="is-circular"
           @click="isSelectingUser = true"
-          style="box-shadow: 0 8px 19px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);">
+          style="box-shadow: 0px 0px 300px -30px rgba(128,128,128,0.75);">
           <base-icon
             icon="plus"/>
         </base-button>
@@ -80,3 +80,10 @@
     }
   }
 </script>
+
+<style>
+  .action-bar {
+    padding-bottom: 5rem;
+    padding-top: 5rem;
+  }
+</style>

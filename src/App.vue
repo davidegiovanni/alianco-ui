@@ -4,14 +4,23 @@
     <base-navbar>
       <template
         slot="left">
-        <base-button @click="sidebar = true"
-                     v-show="sidebarButton">
-          <base-icon icon="map-signs" />
-        </base-button>
-        <span class="is-uppercase is-size-4"
-        style="font-weight:700;color:white;">
-          {{ currentRealm ? currentRealm.name : '' }} - {{ $t(routeName) }}
+        <div style="display: flex;">
+          <a
+            @click="sidebar = true"
+            v-show="sidebarButton">
+          <span style="color:white;">
+           <base-icon icon="th-large:large"/>
+          </span>
+          </a>
+          <div class="is-uppercase is-size-4"
+               style="font-weight:700;color:white;">
+            {{ currentRealm ? currentRealm.name : '' }}<br>
+            <span class="is-uppercase is-size-6"
+                  style="font-weight:300;color:white;">
+          {{ $t(routeName) }}
         </span>
+          </div>
+        </div>
       </template>
       <template
         slot="right">
