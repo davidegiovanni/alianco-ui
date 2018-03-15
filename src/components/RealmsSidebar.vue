@@ -12,7 +12,9 @@
     </template>
     <template
       slot="sidebar-footer">
-      <base-button class="is-text">
+      <base-button
+        class="is-text"
+        @click="create">
         crea organizzazione
       </base-button>
     </template>
