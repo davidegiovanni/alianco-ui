@@ -4,7 +4,8 @@
     <base-navbar>
       <template
         slot="left">
-        <base-button @click="sidebar = true">
+        <base-button @click="sidebar = true"
+                     v-show="sidebarButton">
           <base-icon icon="map-signs" />
         </base-button>
         <span class="is-uppercase is-size-4"
@@ -14,12 +15,9 @@
       </template>
       <template
         slot="right">
-        <figure
-          class="image is-96x96">
-          <img
-            :src="profile"
-            style="border-radius:50%">
-        </figure>
+        <user-profile-image
+         :src="profile"
+        />
       </template>
     </base-navbar>
     <realms-sidebar
@@ -29,7 +27,7 @@
       @select="changeRealm"
       @create="gotoCreateRealm"
       :realms="realms"
-    :currentRealm="currentRealm"/>
+      :currentRealm="currentRealm"/>
     <transition name="fade">
       <router-view/>
     </transition>
@@ -39,15 +37,18 @@
 <script>
   import AutocompleteModal from '@/components/UserAutocompleteModal'
   import RealmsSidebar from '@/components/RealmsSidebar'
+  import UserProfileImage from '@/components/UserProfileImage'
 
   export default {
     components: {
       AutocompleteModal,
-      RealmsSidebar
+      RealmsSidebar,
+      UserProfileImage
     },
     data () {
       return {
-        sidebar: false
+        sidebar: false,
+        sidebarButton: true
       }
     },
     computed: {
@@ -73,15 +74,17 @@
       // this.$store.dispatch('auth/init').then(() => {
       this.$store.dispatch('app/init')
       this.$router.push('/list')
+      this.sidebarButton = true
       // })
     },
     methods: {
       changeRealm (realm) {
         this.$store.dispatch('app/changeRealm', realm)
-        this.sidebar = false
       },
       gotoCreateRealm () {
+        this.sidebar = false
         this.$router.push('create')
+        this.sidebarButton = false
       }
     }
   }
