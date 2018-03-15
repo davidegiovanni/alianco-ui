@@ -85,7 +85,9 @@ export default {
         const citizensWithProfile = _.map(citizens, function (citizen) {
           return _.assign({}, citizen, _.find(profiles, ['user_hid', citizen.user_hid]))
         })
-        commit(types.REALMS_CITIZENS_QUERY_SUCCESS, citizensWithProfile)
+        setTimeout(() => {
+          commit(types.REALMS_CITIZENS_QUERY_SUCCESS, citizensWithProfile)
+        }, 2000)
       } catch (e) {
         commit(types.REALMS_CITIZENS_QUERY_FAILURE, e)
         throw e

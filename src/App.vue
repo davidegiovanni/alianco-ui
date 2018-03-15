@@ -4,10 +4,11 @@
     <base-navbar>
       <template
         slot="left">
-        <div style="display: flex;">
+        <div style="display: flex;"
+             v-show="!isCreateView">
           <a
             @click="sidebar = true"
-            v-show="sidebarButton">
+            >
           <span style="color:white;">
            <base-icon icon="th-large:large"/>
           </span>
@@ -56,8 +57,7 @@
     },
     data () {
       return {
-        sidebar: false,
-        sidebarButton: true
+        sidebar: false
       }
     },
     computed: {
@@ -77,13 +77,15 @@
       },
       routeName () {
         return this.$route ? this.$route.name : ''
+      },
+      isCreateView () {
+        return this.$route.name === 'create'
       }
     },
     created: function () {
       // this.$store.dispatch('auth/init').then(() => {
       this.$store.dispatch('app/init')
       this.$router.push('/list')
-      this.sidebarButton = true
       // })
     },
     methods: {
@@ -93,7 +95,6 @@
       gotoCreateRealm () {
         this.sidebar = false
         this.$router.push('create')
-        this.sidebarButton = false
       }
     }
   }
