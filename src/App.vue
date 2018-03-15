@@ -4,13 +4,22 @@
     <base-navbar>
       <template
         slot="left">
-        <base-button @click="sidebar = true">
-          <base-icon icon="map-signs" />
-        </base-button>
-        <span class="is-uppercase is-size-4"
-        style="font-weight:700;color:white;">
-          {{ currentRealm ? currentRealm.name : '' }} - {{ $t(routeName) }}
+        <div style="display: flex;">
+          <a
+            @click="sidebar = true">
+          <span style="color:white;">
+           <base-icon icon="th-large:large"/>
+          </span>
+          </a>
+          <div class="is-uppercase is-size-4"
+               style="font-weight:700;color:white;">
+            {{ currentRealm ? currentRealm.name : '' }}<br>
+            <span class="is-uppercase is-size-6"
+                  style="font-weight:300;color:white;">
+          {{ $t(routeName) }}
         </span>
+          </div>
+        </div>
       </template>
       <template
         slot="right">
@@ -29,7 +38,7 @@
       @select="changeRealm"
       @create="gotoCreateRealm"
       :realms="realms"
-    :currentRealm="currentRealm"/>
+      :currentRealm="currentRealm"/>
     <transition name="fade">
       <router-view/>
     </transition>
@@ -59,7 +68,7 @@
         if (profile && profile.picture) {
           return profile.picture
         } else {
-          return 'https://api.adorable.io/avatars/96/qweqw.png'
+          return 'https://scontent.fqpa1-1.fna.fbcdn.net/v/t31.0-8/26910628_2079881408910665_2175487719189477791_o.jpg?oh=8c3c49979eed596d4bfe0667f6450d5f&oe=5B4A918C'
         }
       },
       currentRealm () {
@@ -70,10 +79,10 @@
       }
     },
     created: function () {
-      // this.$store.dispatch('auth/init').then(() => {
-      this.$store.dispatch('app/init')
-      this.$router.push('/list')
-      // })
+      this.$store.dispatch('auth/init').then(() => {
+        this.$store.dispatch('app/init')
+        this.$router.push('/list')
+      })
     },
     methods: {
       changeRealm (realm) {
