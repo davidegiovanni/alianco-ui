@@ -80,11 +80,11 @@
       }
     },
     created: function () {
-      // this.$store.dispatch('auth/init').then(() => {
-      this.$store.dispatch('app/init')
-      this.$router.push('/list')
-      this.sidebarButton = true
-      // })
+      this.$store.dispatch('auth/init').then(() => {
+        this.$store.dispatch('app/init')
+        this.$router.push('/list')
+        this.sidebarButton = true
+      })
     },
     methods: {
       changeRealm (realm) {

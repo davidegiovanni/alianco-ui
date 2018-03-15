@@ -75,17 +75,17 @@
     lodash "^4.17.5"
     query-string "^5.1.0"
 
-"@revas/auth-core@^0.0.1-alpha":
-  version "0.0.1-alpha"
-  resolved "https://registry.yarnpkg.com/@revas/auth-core/-/auth-core-0.0.1-alpha.tgz#c996af3bcbcfc68baedb3397ad131947ccab8164"
+"@revas/auth-core@^0.0.2-alpha":
+  version "0.0.2-alpha"
+  resolved "https://registry.yarnpkg.com/@revas/auth-core/-/auth-core-0.0.2-alpha.tgz#5f7099e4eb9d30e609e6935a7fea11e080d1e190"
   dependencies:
     auth0-js "^9.3.1"
 
-"@revas/auth-vue@^0.0.6-alpha":
-  version "0.0.6-alpha"
-  resolved "https://registry.yarnpkg.com/@revas/auth-vue/-/auth-vue-0.0.6-alpha.tgz#847dfb5a3c34c32984e82f967269fa849c811739"
+"@revas/auth-vue@^0.0.8-alpha":
+  version "0.0.8-alpha"
+  resolved "https://registry.yarnpkg.com/@revas/auth-vue/-/auth-vue-0.0.8-alpha.tgz#58db1ad50e3a9923aa634a5df9b20701d3c12b00"
   dependencies:
-    "@revas/auth-core" "^0.0.1-alpha"
+    "@revas/auth-core" "^0.0.2-alpha"
     auth0-js "^9.3.1"
 
 "@revas/design-components@^0.0.1":
