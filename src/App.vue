@@ -83,25 +83,15 @@
       }
     },
     created: function () {
-<<<<<<< HEAD
-      // this.$store.dispatch('auth/init').then(() => {
-      this.$store.dispatch('app/init')
-      this.$router.push('/list')
-      // })
-=======
       this.$store.dispatch('auth/init').then(() => {
         this.$store.dispatch('app/init').then(() => {
-          debugger
           if (!this.currentRealm) {
             this.$router.push('create')
           } else {
             this.$router.push('list')
           }
         })
-
-        this.sidebarButton = true
       })
->>>>>>> 9df36dbb886253a1c56ab1a6deeaea22e7e9d7e5
     },
     methods: {
       changeRealm (realm) {
